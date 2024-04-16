@@ -1,0 +1,44 @@
+/* styles.css */
+
+/* Container for the whole page */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+/* Menu button */
+button {
+  margin-right: 20px;
+}
+
+/* Search input */
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Publication list */
+.PublicationList {
+  margin-top: 50px;
+}
+
+/* Profile icon */
+.ProfileIcon {
+  margin-left: auto;
+  margin-right: 20px;
+}

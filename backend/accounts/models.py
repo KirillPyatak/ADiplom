@@ -1,7 +1,6 @@
 # accounts/models.py
 
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.contrib.auth.models import Group, Permission
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, AbstractUser
 from django.db import models
 
 
@@ -26,34 +25,45 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-
 class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    elibrary_url = models.URLField()
-
+    institution = models.CharField(max_length=255, blank=True, null=True)
+    position = models.CharField(max_length=255, blank=True, null=True)
+    education = models.CharField(max_length=255, blank=True)
+    elibrary_url = models.URLField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
     objects = CustomUserManager()
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
+    # Используем аргумент related_name для разрешения конфликта имен обратных связей
+    groups = models.ManyToManyField(
+        'auth.Group',
+        verbose_name='groups',
+        blank=True,
+        related_name='custom_user_groups',  # Измененное имя обратной связи для groups
+        related_query_name='user',
+    )
+
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        verbose_name='user permissions',
+        blank=True,
+        related_name='custom_user_permissions',  # Измененное имя обратной связи для user_permissions
+        related_query_name='user',
+    )
+
+    # def get_subscription_count(self):
+    #     return self.subscriptions.count()
+
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return self.email
 
     class Meta:
-        managed = True
-        default_related_name = "customuser"
-    # Добавляем related_name к связям groups и user_permissions
-    groups = models.ManyToManyField(Group, verbose_name='groups', blank=True, related_name='custom_user_groups')
-    user_permissions = models.ManyToManyField(Permission, verbose_name='user permissions', blank=True,
-                                              related_name='custom_user_permissions')
-
-# Изменяем related_name для предотвращения конфликта имен
-# с атрибутами groups и user_permissions стандартной модели пользователя Django
-# и предотвращаем ошибки E302 и E304
-# Теперь будет доступно user.customuser_groups и user.customuser_user_permissions
-# вместо user.groups и user.user_permissions
-
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'

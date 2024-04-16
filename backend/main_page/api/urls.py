@@ -1,25 +1,18 @@
 # main_page/api/urls.py
-
-from django.urls import path
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import (
-    ScientificActivityViewSet,
-    NotificationViewSet,
-    ScheduleViewSet,
-    ChatMessageViewSet,
-    NotificationMarkAsReadAPIView,
-    ScheduleRetrieveUpdateAPIView,
-    ScientificActivityRetrieveUpdateAPIView,
-)
+from main_page.api.views.views import *
+#from accounts.api.views.views import *
+
+app_name = 'main_page'
 
 router = DefaultRouter()
-router.register(r'scientific-activity', ScientificActivityViewSet, basename='scientific-activity')
-router.register(r'notifications', NotificationViewSet, basename='notifications')
-router.register(r'schedules', ScheduleViewSet, basename='schedules')
-router.register(r'chat-messages', ChatMessageViewSet, basename='chat-messages')
+router.register(r'PublicationViewSet', PublicationViewSet, basename='PublicationViewSet')
+router.register(r'PublicationTypeViewSet', PublicationTypeViewSet, basename='PublicationTypeViewSet')
+router.register(r'Journal', JournalViewSet, basename='Journal')
+router.register(r'AuthorViewSet', AuthorViewSet, basename='AuthorViewSet')
 
-urlpatterns = router.urls + [
-    path('notifications/mark-as-read/<int:notification_id>/', NotificationMarkAsReadAPIView.as_view(), name='notification-mark-as-read'),
-    path('schedules/<int:pk>/', ScheduleRetrieveUpdateAPIView.as_view(), name='schedule-retrieve-update'),
-    path('scientific-activity/<int:pk>/', ScientificActivityRetrieveUpdateAPIView.as_view(), name='scientific-activity-retrieve-update'),
+urlpatterns = [
+    path('', include(router.urls)),
+    #path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail')
 ]

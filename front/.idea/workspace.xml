@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ad828f70-413a-44a9-b799-2106e4933391" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/main_page/migrations/0002_alter_scientificactivity_publication_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/main_page/migrations/0003_alter_chatmessage_options_alter_notification_options_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/front.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PublicationDetail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PublicationList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UserDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/Header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/PublicationList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/consumers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/api/serializer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/api/serializer/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/FilterPanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/api/views/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/api/views/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/accounts/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main_page/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main_page/api/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/api/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main_page/api/serializers/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/api/serializers/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main_page/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main_page/api/views/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/api/views/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/main_page/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/main_page/models.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f94ehDjQZv7ofjSKcac1Ol3aya" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\ADiplom\front\src" />
+      <recent name="C:\Users\user\PycharmProjects\ADiplom\front\src\style" />
+      <recent name="C:\Users\user\PycharmProjects\ADiplom\front\src\components\style" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad828f70-413a-44a9-b799-2106e4933391" name="Changes" comment="" />
+      <created>1713200058627</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713200058627</updated>
+      <workItem from="1713200060270" duration="24784000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

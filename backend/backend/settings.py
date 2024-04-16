@@ -25,6 +25,8 @@ STATIC_ROOT = (BASE_DIR / 'static')
 MEDIA_ROOT = (BASE_DIR / 'media')
 MEDIA_URL = '/media/'
 
+APPEND_SLASH = True
+
 #Мои приложения
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,7 +38,10 @@ INSTALLED_APPS = [
     'silk',
     'rest_framework',
     'accounts',
-    'main_page'
+    'drf_yasg',
+    'main_page',
+    "corsheaders",
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +53,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'silk.middleware.SilkyMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3001",
+    # Добавьте любые другие источники, если нужно
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -71,7 +82,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 load_dotenv(find_dotenv())
 DB_ENGINE = os.getenv("DB_ENGINE")
-if DB_ENGINE == "postgres":
+if DB_ENGINE == "django.db.backends.postgresql":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -82,11 +93,11 @@ if DB_ENGINE == "postgres":
             "PORT": os.environ["DB_PORT"],
         }
     }
-else:
-    DATABASE_FILE_NAME = os.path.join(BASE_DIR, "db.sqlite3")  # noqa: F405
-    DATABASES = {
-        "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": DATABASE_FILE_NAME}
-    }
+# else:
+#     DATABASE_FILE_NAME = os.path.join(BASE_DIR, "db.sqlite3")  # noqa: F405
+#     DATABASES = {
+#         "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": DATABASE_FILE_NAME}
+#     }
 
 
 # Password validation

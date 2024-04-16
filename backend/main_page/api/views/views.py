@@ -1,78 +1,35 @@
-# main_page/api/views.py
-
-from rest_framework import generics, viewsets
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
+# main_page/api/views/views.py
+import django_filters
+from rest_framework import viewsets, filters
 from main_page.models import *
-from main_page.api.serializers import (
-    ScientificActivitySerializer,
-    NotificationSerializer,
-    ScheduleSerializer,
-    ChatMessageSerializer
-)
+from main_page.api.serializers.serializer import *
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.response import Response
+
+from main_page.api.filters import PublicationFilter
 
 
-class ScientificActivityViewSet(viewsets.ModelViewSet):
-    queryset = ScientificActivity.objects.all()
-    serializer_class = ScientificActivitySerializer
-    permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-
-class NotificationViewSet(viewsets.ModelViewSet):
-    queryset = Notification.objects.all()
-    serializer_class = NotificationSerializer
-    permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+class JournalViewSet(viewsets.ModelViewSet):
+    queryset = Journal.objects.all()
+    serializer_class = JournalSerializer
+class PublicationViewSet(viewsets.ModelViewSet):
+    queryset = Publication.objects.all()
+    serializer_class = PublicationSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_class = PublicationFilter
+    search_fields = ['title', 'authors__name', 'journal__name']
+    ordering_fields = ['created_at', 'citation_count']
 
 
-class ScheduleViewSet(viewsets.ModelViewSet):
-    queryset = Schedule.objects.all()
-    serializer_class = ScheduleSerializer
-    permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+class PublicationTypeViewSet(viewsets.ModelViewSet):
+    queryset = PublicationType.objects.all()
+    serializer_class = PublicationTypeSerializer
 
 
-class ChatMessageViewSet(viewsets.ModelViewSet):
-    queryset = ChatMessage.objects.all()
-    serializer_class = ChatMessageSerializer
-    permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(sender=self.request.user)
-
-
-class NotificationMarkAsReadAPIView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request, notification_id):
-        notification = Notification.objects.get(id=notification_id)
-        if notification.user == request.user:
-            notification.delete()
-            return Response({"message": "Notification marked as read"}, status=200)
-        return Response({"error": "You do not have permission to perform this action"}, status=403)
-
-
-class ScheduleRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
-    queryset = Schedule.objects.all()
-    serializer_class = ScheduleSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        return Schedule.objects.filter(user=self.request.user)
-
-
-class ScientificActivityRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
-    queryset = ScientificActivity.objects.all()
-    serializer_class = ScientificActivitySerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        return ScientificActivity.objects.filter(user=self.request.user)
+class AuthorViewSet(viewsets.ModelViewSet):
+    queryset = Authorship.objects.all()
+    serializer_class = AuthorSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['user__name', 'job_title', 'workplace', 'education']
+    ordering_fields = ['user__name', 'created_at']

@@ -1,0 +1,77 @@
+/* App.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FAFAFB; /* Light gray background */
+}
+
+.header-container {
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+.header-container,
+.PublicationList-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.filter-panel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Выравнивание контейнера по правому краю */
+  margin-top: 20px; /* Добавить отступ сверху */
+  width: 30%; /* Установить ширину контейнера */
+  height: 100%; /* Занимать всю доступную высоту */
+}
+
+.PublicationList-container {
+  margin-top: 20px; /* Добавить отступ сверху */
+  width: 70%; /* Установить ширину контейнера */
+  flex-grow: 1; /* Занимать оставшееся пространство по высоте */
+}
+
+.PublicationList-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #FAFAFB;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

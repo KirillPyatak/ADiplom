@@ -1,27 +1,33 @@
-# main_page/serializers.py
+# main_page/api/serializers/serializer.py
 
 from rest_framework import serializers
-from main_page.models import *
+from main_page.models import Publication,PublicationType,Authorship,Journal
 
-class ScientificActivitySerializer(serializers.ModelSerializer):
+
+class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ScientificActivity
+        model = Authorship
         fields = '__all__'
 
-
-class NotificationSerializer(serializers.ModelSerializer):
+class JournalSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Notification
+        model = Journal
+        exclude = ['id']
+class PublicationSerializer(serializers.ModelSerializer):
+    journal = JournalSerializer(read_only=True)
+    types = JournalSerializer(read_only=True, many=True)
+    authors = serializers.SerializerMethodField('get_authors')  # Use SerializerMethodField to customize authors field
+
+
+    def get_authors(self, obj):
+        authors = obj.authors.all()  # Retrieve all authors related to the publication
+        author_names = [author.name for author in authors]  # Extract names from User objects
+        return author_names
+    class Meta:
+        model = Publication
         fields = '__all__'
 
-
-class ScheduleSerializer(serializers.ModelSerializer):
+class PublicationTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Schedule
-        fields = '__all__'
-
-
-class ChatMessageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ChatMessage
+        model = PublicationType
         fields = '__all__'
