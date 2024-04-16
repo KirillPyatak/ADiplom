@@ -1,4 +1,3 @@
-// FilterPanel.js
 import React, { useState } from 'react';
 
 const FilterPanel = ({ onFilter }) => {
@@ -6,7 +5,7 @@ const FilterPanel = ({ onFilter }) => {
     title: '',
     authors: '',
     journal: '',
-      types:''
+    types: ''
   });
 
   const handleChange = (event) => {
@@ -19,6 +18,7 @@ const FilterPanel = ({ onFilter }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Вызываем функцию onFilter и передаем ей данные formData
     onFilter(formData);
   };
 
@@ -57,8 +57,8 @@ const FilterPanel = ({ onFilter }) => {
           onChange={handleChange}
         />
       </div>
-        <div className="form-group">
-        <label htmlFor="types">тип</label>
+      <div className="form-group">
+        <label htmlFor="types">Тип</label>
         <input
           type="text"
           className="form-control"

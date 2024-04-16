@@ -2,17 +2,31 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function PublicationList({ filterParams }) {
+function PublicationList({ filterData, searchQuery }) {
   const [publications, setPublications] = useState([]);
 
   useEffect(() => {
-    const params = new URLSearchParams(filterParams).toString();
-    axios.get(`http://127.0.0.1:8000/api/v1/PublicationViewSet/?${params}`)
+    let url = 'http://127.0.0.1:8000/api/v1/PublicationViewSet/';
+
+    // Формируем параметры запроса на основе filterData
+    const params = new URLSearchParams(filterData).toString();
+    if (params) {
+      url += `?${params}`;
+    }
+
+    // Добавляем параметр поиска, если он не пустой
+    if (searchQuery && params) {
+      url += `&search=${searchQuery}`;
+    } else if (searchQuery) {
+      url += `?search=${searchQuery}`;
+    }
+
+    axios.get(url)
       .then(response => {
         setPublications(response.data);
       })
       .catch(error => console.error(error));
-  }, [filterParams]);
+  }, [filterData, searchQuery]);
 
   return (
     <table className="PublicationTable">

@@ -15,12 +15,10 @@ class JournalViewSet(viewsets.ModelViewSet):
 class PublicationViewSet(viewsets.ModelViewSet):
     queryset = Publication.objects.all()
     serializer_class = PublicationSerializer
-    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_class = PublicationFilter
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter, django_filters.rest_framework.DjangoFilterBackend]
     search_fields = ['title', 'authors__name', 'journal__name']
+    filterset_class = PublicationFilter
     ordering_fields = ['created_at', 'citation_count']
-
 
 class PublicationTypeViewSet(viewsets.ModelViewSet):
     queryset = PublicationType.objects.all()
