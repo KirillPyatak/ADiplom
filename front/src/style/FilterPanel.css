@@ -1,0 +1,25 @@
+/* FilterPanel.css */
+
+.filter-panel {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-header {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-item {
+  margin-bottom: 5px;
+}
+
+.filter-item label {
+  margin-right: 5px;
+}
